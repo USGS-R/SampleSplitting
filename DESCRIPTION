@@ -2,10 +2,10 @@ Package: SampleSplitting
 Type: Package
 Title: Assists users in loading site data and preparing splitting volumes for
     the lab
-Version: 1.0.2
+Version: 1.0.3
 Date: 2016-02-17
-Authors@R: c( person("Steven", "Corsi", role = c("aut"),
-    email = "srcorsi@usgs.gov"),
+Authors@R: c( person("Laura", "Hubbard", role = c("aut"),
+    email = "lhubbard@usgs.gov"),
     person("Jessica","Thompson", role = c("aut")),
     person("Laura", "DeCicco", role = c("cre"),
     email = "ldecicco@usgs.gov"))
