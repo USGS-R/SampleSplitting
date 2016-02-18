@@ -28,8 +28,8 @@
 labDataOut <- function(adaps_data_all,StormStart,StormEnd,StormName,maxBottleVol,maxSampVol,removeDate=NA,subNum=-9) {
   adaps_data_samples <- adaps_data_all[which(adaps_data_all$p99234>0),c("datetime","p00060")]
   adaps_data_plot <- adaps_data_all[,c("datetime","p00065","p00060")]
-  StormStart <- strptime(StormStart,"%Y-%m-%d %H:%M")
-  StormEnd <- strptime(StormEnd,"%Y-%m-%d %H:%M")
+  StormStart <- as.POSIXct(StormStart,format="%Y-%m-%d %H:%M", tz=tzCode)
+  StormEnd <- as.POSIXct(StormEnd,format="%Y-%m-%d %H:%M", tz=tzCode)
   if (sum(is.na(StormStart))+sum(is.na(StormEnd))>0) {
     cat(paste("Problem with date format","\n\n",sep=""))
   } else {
@@ -37,8 +37,8 @@ labDataOut <- function(adaps_data_all,StormStart,StormEnd,StormName,maxBottleVol
     numStorms <- length(StormStart)
     noSamp <- 0
     for (j in 1:numStorms) {
-      StartDt <- StormStart[j]
-      EndDt <- StormEnd[j]
+      StartDt <- as.POSIXct(StormStart[j],tz=tzCode)
+      EndDt <- as.POSIXct(StormEnd[j],tz=tzCode)
       row.names(adaps_data_plot)<-(1:nrow(adaps_data_plot))
       startRow <- as.character(as.numeric(row.names(adaps_data_plot[which(StartDt==adaps_data_plot$datetime),]))-1)
       endRow <- as.character(as.numeric(row.names(adaps_data_plot[which(EndDt==adaps_data_plot$datetime),]))+1)
@@ -85,8 +85,8 @@ labDataOut <- function(adaps_data_all,StormStart,StormEnd,StormName,maxBottleVol
         }
       }
       adaps_samp_storm$volume <- 9999
-      adaps_samp_storm$sampStar <- StartDt
-      adaps_samp_storm$sampEnd <- EndDt
+      adaps_samp_storm$sampStar <- as.POSIXct(StartDt, tz=tzCode)
+      adaps_samp_storm$sampEnd <- as.POSIXct(EndDt, tz=tzCode)
       samplesNum <- nrow(adaps_samp_storm)
       for (i in 1:samplesNum) {
         sampStart <- if (i>1) {adaps_samp_storm$datetime[i-1]+(.5*(adaps_samp_storm$datetime[i]-adaps_samp_storm$datetime[i-1]))} else {min(adaps_data_storm$datetime)}
@@ -103,8 +103,8 @@ labDataOut <- function(adaps_data_all,StormStart,StormEnd,StormName,maxBottleVol
         adaps_samp_storm$volume[i] <- sum(adaps_data_storm_temp$volume,na.rm=TRUE)
         adaps_data_storm_temp$datetime[1] <- sampStartOut
         adaps_data_storm_temp$datetime[nrow(adaps_data_storm_temp)] <- sampEndOut
-        adaps_samp_storm$sampStar[i] <- strftime(sampStartOut)
-        adaps_samp_storm$sampEnd[i] <- strftime(sampEndOut)
+        adaps_samp_storm$sampStar[i] <- as.POSIXct(sampStartOut, tz=tzCode)
+        adaps_samp_storm$sampEnd[i] <- as.POSIXct(sampEndOut, tz=tzCode)
         adaps_samp_storm$subNum[i] <- paste(strsplit(adaps_samp_storm$subNum[i],"-")[[1]][1],strsplit(adaps_samp_storm$subNum[i],"-")[[1]][3],sep="-")
         adaps_data_storm_temp$samplesNum <- rep(adaps_samp_storm$subNum[i],nrow(adaps_data_storm_temp))
         adaps_data_samp <- if (i+j>2) {rbind(adaps_data_samp,adaps_data_storm_temp)} else {adaps_data_storm_temp}

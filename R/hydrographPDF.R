@@ -13,8 +13,9 @@ hydrographPDF <- function(adaps_data_all,siteNo,dateInt) {
   plot_00060 <- adaps_data_plot[which(!is.na(adaps_data_plot$p00060)),]
   plot_00065 <- adaps_data_plot[which(!is.na(adaps_data_plot$p00065)),]
   plot_samp <- adaps_data_samples[which(!is.na(adaps_data_samples$p00060)),]
-  startDt <- strftime(min(adaps_data_plot$datetime),format="%Y.%m.%d")
-  endDt <- strftime(max(adaps_data_plot$datetime), format="%Y.%m.%d")
+  tzAttr <- attr(tableOut[[i]][,"datetime"],"tzone")
+  startDt <- strftime(min(adaps_data_plot$datetime),format="%Y.%m.%d", tz=tzAttr)
+  endDt <- strftime(max(adaps_data_plot$datetime), format="%Y.%m.%d", tz=tzAttr)
   ytop <- ifelse(max(plot_00045$cum_00045)>max(plot_00065$p00065),max(plot_00045$cum_00045),max(plot_00065$p00065))
   pdf(paste(siteNo,".",startDt,".",endDt,"hydrograph.pdf",sep=""),width=10,height=8)
   par(mar=c(8,4,5,4),xpd=T)

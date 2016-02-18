@@ -15,7 +15,7 @@ labVolumesTable <- function(StormName,StormStart,StormEnd,tableOut,bottlePickup)
   for (i in 1:length(StormName)) {
     if (!is.na(tableOut[[i]][1,2])) {
     cat("==================================================================================","\n")
-    cat("\t",StormName[i],"\t\t",strftime(StormStart[i],format="%Y-%m-%d %H:%M"),"\t",strftime(StormEnd[i],format="%Y-%m-%d %H:%M"),"\n")
+    cat("\t",StormName[i],"\t\t",strftime(StormStart[i],format="%Y-%m-%d %H:%M %z", tz=attr(labTable$datetime,"tzone")),"\t",strftime(StormEnd[i],format="%Y-%m-%d %H:%M %z", tz=attr(labTable$datetime,"tzone")),"\n")
     cat("==================================================================================","\n")
     labTable <- tableOut[[i]]
     for (j in 1:nrow(labTable)) {
