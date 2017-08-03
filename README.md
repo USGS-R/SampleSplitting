@@ -6,9 +6,9 @@ Calculates sample bottle volumes for a given USGS station and storm event(s)
 ## Package Status
 
 
-|Linux|Windows|Test Coverage| USGS Status |
-|----------|------------|------------|------------|
-| [![travis](https://travis-ci.org/USGS-R/SampleSplitting.svg?branch=master)](https://travis-ci.org/USGS-R/SampleSplitting)|[![Build status](https://ci.appveyor.com/api/projects/status/i2hr35abwxx85vgs?svg=true)](https://ci.appveyor.com/project/ldecicco-USGS/SampleSplitting)|[![Coverage Status](https://coveralls.io/repos/github/USGS-R/SampleSplitting/badge.svg?branch=master)](https://coveralls.io/github/USGS-R/SampleSplitting?branch=master)|[![status](https://img.shields.io/badge/USGS-Research-blue.svg)](https://owi.usgs.gov/R/packages.html#research)|
+|Linux|Test Coverage| USGS Status |
+|----------|------------|------------|
+| [![travis](https://travis-ci.org/USGS-R/SampleSplitting.svg?branch=master)](https://travis-ci.org/USGS-R/SampleSplitting)|[![Coverage Status](https://coveralls.io/repos/github/USGS-R/SampleSplitting/badge.svg?branch=master)](https://coveralls.io/github/USGS-R/SampleSplitting?branch=master)|[![status](https://img.shields.io/badge/USGS-Research-blue.svg)](https://owi.usgs.gov/R/packages.html#research)|
 
 ### Reporting bugs
 
