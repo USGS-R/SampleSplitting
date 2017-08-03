@@ -8,16 +8,16 @@ Calculates sample bottle volumes for a given USGS station and storm event(s)
 
 |Linux|Windows|Test Coverage| USGS Status |
 |----------|------------|------------|------------|
-| [![travis](https://travis-ci.org/USGS-R/Rainmaker.svg?branch=master)](https://travis-ci.org/USGS-R/Rainmaker)|[![Build status](https://ci.appveyor.com/api/projects/status/i2hr35abwxx85vgs?svg=true)](https://ci.appveyor.com/project/ldecicco-USGS/Rainmaker)|[![Coverage Status](https://coveralls.io/repos/github/USGS-R/Rainmaker/badge.svg?branch=master)](https://coveralls.io/github/USGS-R/Rainmaker?branch=master)|[![status](https://img.shields.io/badge/USGS-Research-blue.svg)](https://owi.usgs.gov/R/packages.html#research)|
+| [![travis](https://travis-ci.org/USGS-R/SampleSplitting.svg?branch=master)](https://travis-ci.org/USGS-R/SampleSplitting)|[![Build status](https://ci.appveyor.com/api/projects/status/i2hr35abwxx85vgs?svg=true)](https://ci.appveyor.com/project/ldecicco-USGS/SampleSplitting)|[![Coverage Status](https://coveralls.io/repos/github/USGS-R/SampleSplitting/badge.svg?branch=master)](https://coveralls.io/github/USGS-R/SampleSplitting?branch=master)|[![status](https://img.shields.io/badge/USGS-Research-blue.svg)](https://owi.usgs.gov/R/packages.html#research)|
 
 ### Reporting bugs
 
 Please consider reporting bugs and asking questions on the Issues page:
-[https://github.com/USGS-R/Rainmaker/issues](https://github.com/USGS-R/Rainmaker/issues)
+[https://github.com/USGS-R/SampleSplitting/issues](https://github.com/USGS-R/SampleSplitting/issues)
 
 ### Code of Conduct
 
-We want to encourage a warm, welcoming, and safe environment for contributing to this project. See the [code of conduct](https://github.com/USGS-R/Rainmaker/blob/master/CONDUCT.md) for more information.
+We want to encourage a warm, welcoming, and safe environment for contributing to this project. See the [code of conduct](https://github.com/USGS-R/SampleSplitting/blob/master/CONDUCT.md) for more information.
 
 
 ## Installation of R and RStudio
@@ -51,12 +51,12 @@ Useful links:
 * [Download RStudio](https://www.rstudio.com/products/rstudio/download/)
 
 
-## Installation of Rainmaker
+## Installation of SampleSplitting
 
 This section should also only have to be done once. It assumes the USGS R repository (GRAN) was added to your R profile as described above.
 
 ```r
-install.packages("Rainmaker")
+install.packages("SampleSplitting")
 ```
 
 Regularly, it is a good idea to update *ALL* your packages in R. If using RStudio, this is quite easy, there's an Update button in the "Packages" tab. This checks CRAN and GRAN for updates. It is a good idea to click this update regularly.
