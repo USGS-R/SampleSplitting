@@ -14,30 +14,22 @@
 #' paramAvailability(siteNo)
 #' }
 paramAvailability <- function (siteNo) {
-  urlSitefile3 <- paste("http://waterservices.usgs.gov/nwis/site?format=rdb&seriesCatalogOutput=true&sites=", 
-                       siteNo, "&access=3",sep = "")
-  SiteFile3 <- read.delim(urlSitefile3, header = TRUE, quote = "\"", 
-                         dec = ".", sep = "\t", colClasses = c("character"), fill = TRUE, 
-                         comment.char = "#",strip.white=TRUE)
-  SiteFile3 <- SiteFile3[-1, ]
+  dataRetrieval::setAccess("internal")
+  SiteFile3 <- dataRetrieval::whatNWISdata(siteNumber = siteNo)
+  
   SiteFile3 <- with(SiteFile3, data.frame(parameter_cd = parm_cd, 
-                                        statCd = stat_cd, startDate = begin_date, endDate = end_date, 
-                                        count = count_nu, service = data_type_cd, access = 3, stringsAsFactors = FALSE))
-  urlSitefile2 <- paste("http://waterservices.usgs.gov/nwis/site?format=rdb&seriesCatalogOutput=true&sites=", 
-                        siteNo, "&access=2",sep = "")
-  SiteFile2 <- read.delim(urlSitefile2, header = TRUE, quote = "\"", 
-                          dec = ".", sep = "\t", colClasses = c("character"), fill = TRUE, 
-                          comment.char = "#",strip.white=TRUE)
-  SiteFile2 <- SiteFile2[-1, ]
+                                          statCd = stat_cd, startDate = begin_date, endDate = end_date, 
+                                          count = count_nu, service = data_type_cd, access = 3, stringsAsFactors = FALSE))
+  dataRetrieval::setAccess("USGS")
+  
+  SiteFile2 <- dataRetrieval::whatNWISdata(siteNumber = siteNo)
   SiteFile2 <- with(SiteFile2, data.frame(parameter_cd = parm_cd, 
-                                         statCd = stat_cd, startDate = begin_date, endDate = end_date, 
-                                         count = count_nu, service = data_type_cd, access = 2, stringsAsFactors = FALSE))
-  urlSitefile1 <- paste("http://waterservices.usgs.gov/nwis/site?format=rdb&seriesCatalogOutput=true&sites=", 
-                        siteNo, "&access=1",sep = "")
-  SiteFile1 <- read.delim(urlSitefile1, header = TRUE, quote = "\"", 
-                          dec = ".", sep = "\t", colClasses = c("character"), fill = TRUE, 
-                          comment.char = "#",strip.white=TRUE)
-  SiteFile1 <- SiteFile1[-1, ]
+                                          statCd = stat_cd, startDate = begin_date, endDate = end_date, 
+                                          count = count_nu, service = data_type_cd, access = 2, stringsAsFactors = FALSE))
+  dataRetrieval::setAccess("public")
+  
+  SiteFile1 <- dataRetrieval::whatNWISdata(siteNumber = siteNo)
+  
   SiteFile1 <- with(SiteFile1, data.frame(parameter_cd = parm_cd, 
                                           statCd = stat_cd, startDate = begin_date, endDate = end_date, 
                                           count = count_nu, service = data_type_cd, access = 1, stringsAsFactors = FALSE))
