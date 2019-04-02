@@ -21,6 +21,7 @@
 #' adaps_data_all <- getADAPSData(siteNo,StartDt,EndDt,precipSite,tzCode=tzCode)
 #' }
 getADAPSData <- function(siteNo,StartDt,EndDt,precipSite,dataFile="",tzCode="") {
+  
   if (nchar(dataFile)>=3) {
     adaps_data_in <- read.delim(dataFile,header=TRUE,quote="\"",dec=".",sep="\t",colClasses=c("character"),strip.white=TRUE,fill=TRUE,comment.char="#")
     adaps_data_in <- adaps_data_in[-1, ]
@@ -51,7 +52,7 @@ getADAPSData <- function(siteNo,StartDt,EndDt,precipSite,dataFile="",tzCode="") 
     return(adaps_data_all)
   } else {
     POR <- paramAvailability(siteNo)
-    POR <- POR[which(POR$service=="uv"&POR$parameter_cd %in% c("00060","00065","99234")),]
+    POR <- POR[which(POR$service=="uv" & POR$parameter_cd %in% c("00060","00065","99234")),]
     PORprecip <- paramAvailability(precipSite)
     PORprecip <- PORprecip[which(PORprecip$service=="uv"&PORprecip$parameter_cd=="00045"),]
     
