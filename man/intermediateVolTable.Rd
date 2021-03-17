@@ -18,4 +18,3 @@ intermediateVolTable(siteNo, StartDt, EndDt, tableOut)
 \description{
 This function accepts a siteNo, StartDt, EndDt and tableOut list of data for a given storm event
 }
-

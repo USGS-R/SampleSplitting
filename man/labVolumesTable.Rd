@@ -20,4 +20,3 @@ labVolumesTable(StormName, StormStart, StormEnd, tableOut, bottlePickup)
 \description{
 This function accepts a vector of storm names, vector of storm start and end datetimes and list of dataframes containing event data
 }
-

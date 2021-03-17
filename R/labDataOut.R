@@ -39,10 +39,13 @@ labDataOut <- function(adaps_data_all,StormStart,StormEnd,StormName,maxBottleVol
     for (j in 1:numStorms) {
       StartDt <- as.POSIXct(StormStart[j],tz=tzCode)
       EndDt <- as.POSIXct(StormEnd[j],tz=tzCode)
-      row.names(adaps_data_plot)<-(1:nrow(adaps_data_plot))
-      startRow <- as.character(as.numeric(row.names(adaps_data_plot[which(StartDt==adaps_data_plot$datetime),]))-1)
-      endRow <- as.character(as.numeric(row.names(adaps_data_plot[which(EndDt==adaps_data_plot$datetime),]))+1)
-      adaps_data_storm <- adaps_data_plot[startRow:endRow,]
+
+      exact_rows <- which(adaps_data_plot$datetime >= StartDt &
+                            adaps_data_plot$datetime <= EndDt)
+      exact_rows <- c(min(exact_rows) - 1, exact_rows, max(exact_rows) + 1)
+      exact_rows <- exact_rows[exact_rows>0]
+      
+      adaps_data_storm <- adaps_data_plot[exact_rows,]
       adaps_data_storm <- adaps_data_storm[which(!is.na(adaps_data_storm$p00060)),]
       data_rows <- nrow(adaps_data_storm)
       adaps_data_storm$volume <- 9999

@@ -4,8 +4,15 @@
 \alias{stormEventsTable}
 \title{Function to generate text file with storm event sample bottle volume table(s) and extra info}
 \usage{
-stormEventsTable(StormName, StormStart, StormEnd, tableOut, maxBottleVol,
-  bottlePickup, removeComment = "")
+stormEventsTable(
+  StormName,
+  StormStart,
+  StormEnd,
+  tableOut,
+  maxBottleVol,
+  bottlePickup,
+  removeComment = ""
+)
 }
 \arguments{
 \item{StormName}{vector of storm name(s)}
@@ -25,4 +32,3 @@ stormEventsTable(StormName, StormStart, StormEnd, tableOut, maxBottleVol,
 \description{
 This function accepts a vector of storm names, vector of storm start and end datetimes, vector of comments (optional) and list of dataframes containing event data
 }
-

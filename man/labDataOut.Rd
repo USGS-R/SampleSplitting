@@ -4,8 +4,16 @@
 \alias{labDataOut}
 \title{Function to return adaps_lab_samples df derived from previously merged data}
 \usage{
-labDataOut(adaps_data_all, StormStart, StormEnd, StormName, maxBottleVol,
-  maxSampVol, removeDate = NA, subNum = -9)
+labDataOut(
+  adaps_data_all,
+  StormStart,
+  StormEnd,
+  StormName,
+  maxBottleVol,
+  maxSampVol,
+  removeDate = NA,
+  subNum = -9
+)
 }
 \arguments{
 \item{adaps_data_all}{data frame containing merged ADAPS data for the requested site and date range}
@@ -43,4 +51,3 @@ dataOut <- labDataOut(rdbExample,StormStart,StormEnd,StormName,maxBottleVol,maxS
 removeDate <- as.POSIXct("2008-06-15 05:44:00")
 dataOut2 <- labDataOut(rdbExample,StormStart,StormEnd,StormName,maxBottleVol,maxSampVol, removeDate)
 }
-
