@@ -42,8 +42,8 @@ labDataOut <- function(adaps_data_all,StormStart,StormEnd,StormName,maxBottleVol
 
       exact_rows <- which(adaps_data_plot$datetime >= StartDt &
                             adaps_data_plot$datetime <= EndDt)
-      exact_rows <- c(min(exact_rows) - 1, exact_rows, max(exact_rows) + 1)
-      exact_rows <- exact_rows[exact_rows>0]
+      # exact_rows <- c(min(exact_rows) - 1, exact_rows, max(exact_rows) + 1)
+      # exact_rows <- exact_rows[exact_rows>0]
       
       adaps_data_storm <- adaps_data_plot[exact_rows,]
       adaps_data_storm <- adaps_data_storm[which(!is.na(adaps_data_storm$p00060)),]
