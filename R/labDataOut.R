@@ -11,10 +11,12 @@
 #' @param maxSampVol vector of maximum volumes of one total sample
 #' @param removeDate vector of datetimes to be removed from the calculation, in the same timezone as adaps_data_all$datetime
 #' @param subNum vector of starting numbers for first bottle of each storm event
+#' @param tzCode character a timezone specification for the data
 #' @return tableOut list of a table for each storm event of bottle volumes 
 #' @export
 #' @examples
-#' rdbExample<-rdbExample
+#' rdbExample <- rdbExample
+#' tzCode <- "America/Chicago"
 #' maxBottleVol <- c(400,600,600,600,600,600,600,400,600,800)
 #' maxSampVol <- c(3900,3900,3900,3900,3900,3900,3900,3900,3900,3900)
 #' StormStart <- c("2008-05-30 02:51","2008-06-05 04:39","2008-06-06 04:22",
@@ -33,9 +35,12 @@
 #'                       StormName,maxBottleVol,maxSampVol)
 #' removeDate <- as.POSIXct("2008-06-15 05:44:00")
 #' dataOut2 <- labDataOut(rdbExample,
-#'                        StormStart,StormEnd,
-#'                        StormName,maxBottleVol,maxSampVol, removeDate)
-labDataOut <- function(adaps_data_all,StormStart,StormEnd,StormName,maxBottleVol,maxSampVol,removeDate=NA,subNum=-9) {
+#'                        StormStart, StormEnd,
+#'                        StormName,maxBottleVol,maxSampVol,
+#'                         removeDate, tzCode = tzCode)
+labDataOut <- function(adaps_data_all,StormStart,StormEnd,
+                       StormName,maxBottleVol,maxSampVol,
+                       removeDate=NA,subNum=-9, tzCode = "America/Chicago") {
   adaps_data_samples <- adaps_data_all[which(adaps_data_all$p99234>0),c("datetime","p00060")]
   adaps_data_plot <- adaps_data_all[,c("datetime","p00065","p00060")]
   StormStart <- as.POSIXct(StormStart,format="%Y-%m-%d %H:%M", tz=tzCode)

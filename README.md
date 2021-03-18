@@ -3,6 +3,14 @@
 
 Calculates sample bottle volumes for a given USGS station and storm event(s)
 
+## Example Workflow
+
+```r
+
+
+
+```
+
 ## Package Status
 
 
