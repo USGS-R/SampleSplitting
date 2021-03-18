@@ -101,7 +101,9 @@ getADAPSData <- function(siteNo,StartDt,EndDt,precipSite,dataFile="",tzCode="") 
         }
         
         if("p99234" %in% names(adaps_data)){
-          adaps_data <- adaps_data[adaps_data$p99234 > 900, ]
+          # Should it be:
+          # adaps_data <- adaps_data[adaps_data$p99234 > 900, ]
+          adaps_data$p99234[adaps_data$p99234 < 900] <- NA
         }
         
         if("p00045" %in% names(adaps_data)){
