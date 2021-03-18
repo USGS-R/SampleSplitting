@@ -6,6 +6,15 @@
 #' @param siteNo string containing USGS gage number
 #' @param dateInt number containing number of hours difference between x-axis tick marks
 #' @export
+#' @importFrom graphics axis
+#' @importFrom graphics axis.POSIXct
+#' @importFrom graphics legend
+#' @importFrom graphics lines
+#' @importFrom graphics mtext
+#' @importFrom graphics par
+#' @importFrom graphics points
+#' @importFrom grDevices dev.off
+#' @importFrom grDevices pdf
 hydrographPDF <- function(adaps_data_all,siteNo,dateInt) {
   adaps_data_samples <- adaps_data_all[which(adaps_data_all$p99234>0),c("datetime","p00060")]
   adaps_data_plot <- adaps_data_all[,c("datetime","cum_00045","p00065","p00060")]

@@ -4,7 +4,6 @@
 #' 
 #' @param siteNo NWIS gaging station id
 #' @return SiteFile data frame of data available for a given site from NWISWeb
-#' @import dataRetrieval
 #' @export
 #' @examples
 #' \dontrun{
@@ -23,7 +22,7 @@ paramAvailability <- function (siteNo) {
   SiteFile <- unique(SiteFile)
 
   pCodes <- unique(SiteFile$parameter_cd)
-  pcodeINFO <- readNWISpCode(pCodes)
+  pcodeINFO <- dataRetrieval::readNWISpCode(pCodes)
   SiteFile <- merge(SiteFile, pcodeINFO, by = "parameter_cd")
   return(SiteFile)
 }

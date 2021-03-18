@@ -11,7 +11,8 @@ stormEventsTable(
   tableOut,
   maxBottleVol,
   bottlePickup,
-  removeComment = ""
+  removeComment = "",
+  tzCode = "America/Chicago"
 )
 }
 \arguments{
@@ -28,6 +29,8 @@ stormEventsTable(
 \item{bottlePickup}{date bottles were retrieved}
 
 \item{removeComment}{vector of comments}
+
+\item{tzCode}{character a timezone specification for the data}
 }
 \description{
 This function accepts a vector of storm names, vector of storm start and end datetimes, vector of comments (optional) and list of dataframes containing event data

@@ -9,7 +9,7 @@
 #' @param tzCode a timezone specification for the data
 #' @param dataFile string of data file path and name
 #' @return adaps_data_all data frame containing merged ADAPS data for the requested site and date range
-#' @import dataRetrieval
+#' @importFrom utils read.delim
 #' @export
 #' @examples
 #' \dontrun{
@@ -56,20 +56,18 @@ getADAPSData <- function(siteNo,StartDt,EndDt,precipSite,dataFile="",tzCode="") 
     PORprecip <- paramAvailability(precipSite)
     PORprecip <- PORprecip[which(PORprecip$service=="uv"&PORprecip$parameter_cd=="00045"),]
     
-    if(is.null(getOption("Access.dataRetrieval"))){
-      setAccess("internal")
-    }
+    dataRetrieval::setAccess("internal")
 
     if ((length(unique(POR$parameter_cd)))+(length(unique(PORprecip$parameter_cd)))>=4) {
       if (max(POR$startDate[which(POR$service == "uv" & POR$parameter_cd %in% c("00060","00065"))]) <= StartDt &
           min(POR$endDate[which(POR$service == "uv" & POR$parameter_cd %in% c("00060","00065"))]) >= EndDt) {
         
-        adaps_data <- readNWISuv(siteNumbers = unique(c(siteNo, precipSite)), 
+        adaps_data <- dataRetrieval::readNWISuv(siteNumbers = unique(c(siteNo, precipSite)), 
                                 parameterCd = c('00065', '00060', '99234', '00045'),
                                 startDate = StartDt,
                                 endDate = EndDt,
                                 tz = tzCode)
-        adaps_data <- renameNWISColumns(adaps_data, p99234 = "Count")
+        adaps_data <- dataRetrieval::renameNWISColumns(adaps_data, p99234 = "Count")
         names(adaps_data)[names(adaps_data) == "dateTime"] <- "datetime"
         
         names(adaps_data)[grep("GH_Inst_cd", names(adaps_data))] <- "p00065_cd"

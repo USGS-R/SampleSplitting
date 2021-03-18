@@ -7,6 +7,7 @@
 #' @param EndDt end of storm event
 #' @param adaps_data_all data frame of event data
 #' @export
+#' @importFrom utils write.table
 mergedDataTable <- function(siteNo,StartDt,EndDt,adaps_data_all) {  
   names(adaps_data_all)[names(adaps_data_all) == "dateTime"] <- "datetime"
   
@@ -19,14 +20,4 @@ mergedDataTable <- function(siteNo,StartDt,EndDt,adaps_data_all) {
   sink()
 }
 
-
-
-# mergedDataTable <- function(siteNo,StartDt,EndDt,adaps_data_all) {  
-#   tableOut <- adaps_data_all[,c("agency_cd","site_no","datetime","p00065","p00060","p99234")]
-#   fileName <- paste(siteNo,"data.csv",sep="")
-#   sink(fileName)
-#   cat("Station:"," ",siteNo,"\t","Start date:"," ",strftime(StartDt),"\t","End date:"," ",strftime(EndDt),"\n\n")
-#   write.table(tableOut,file="",sep=",",row.names=FALSE)
-#   sink()
-# }
 
