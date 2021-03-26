@@ -4,7 +4,7 @@
 \alias{hydrographPDF}
 \title{Function to generate and save pdf version of the hydrograph plot}
 \usage{
-hydrographPDF(adaps_data_all, siteNo, dateInt)
+hydrographPDF(adaps_data_all, siteNo, dateInt, tzCode = "America/Chicago")
 }
 \arguments{
 \item{adaps_data_all}{data frame containing merged ADAPS data for the requested storm event}
@@ -12,8 +12,10 @@ hydrographPDF(adaps_data_all, siteNo, dateInt)
 \item{siteNo}{string containing USGS gage number}
 
 \item{dateInt}{number containing number of hours difference between x-axis tick marks}
+
+\item{tzCode}{character a timezone specification for the data
+#' @export}
 }
 \description{
 This function accepts a merged data frame of ADAPS data for a site/storm event
 }
-

@@ -1,13 +1,8 @@
-install.packages(c("googleVis"), dependencies=TRUE)
-install.packages("dataRetrieval")
-install.packages(c("SampleSplitting"), repos=c("http://owi.usgs.gov/R",getOption("repos")))
-########################################################################################################
 library(SampleSplitting)
 library(dataRetrieval)
-library(googleVis)
 
 #EDIT to include the name of the new storm folder
-setwd("//Sunset/data s archives/HNS_Archive/Water_Quality/GLRI_Edge_of_Field/RStudio Files")
+# setwd("//Sunset/data s archives/HNS_Archive/Water_Quality/GLRI_Edge_of_Field/RStudio Files")
 
 # enter NWIS station id for gaging station
 siteNo <- "411229084541102"
@@ -60,7 +55,7 @@ maxSampVol <- c(3900)
 subNum <- c(1001)
 
 # generate bottle volume table(s) for lab for each storm
-source("//Sunset/data s archives/HNS_Archive/Water_Quality/GLRI_Edge_of_Field/RStudio Files/labDataOutMI.R")
+# source("//Sunset/data s archives/HNS_Archive/Water_Quality/GLRI_Edge_of_Field/RStudio Files/labDataOutMI.R")
 tableOut <- labDataOutMI(adaps_data_all,StormStart,StormEnd,StormName,maxBottleVol,maxSampVol,subNum=subNum)
 # look at table(s) generated for lab sample instructions for storm event(s). determine if changes are needed
 for (i in 1:length(StormStart)){

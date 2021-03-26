@@ -3,12 +3,18 @@
 
 Calculates sample bottle volumes for a given USGS station and storm event(s)
 
+## Example Workflow
+
+```r
+
+
+
+```
+
 ## Package Status
 
 
-|Linux|Test Coverage| USGS Status |
-|----------|------------|------------|
-| [![travis](https://travis-ci.org/USGS-R/SampleSplitting.svg?branch=master)](https://travis-ci.org/USGS-R/SampleSplitting)|[![Coverage Status](https://coveralls.io/repos/github/USGS-R/SampleSplitting/badge.svg?branch=master)](https://coveralls.io/github/USGS-R/SampleSplitting?branch=master)|[![status](https://img.shields.io/badge/USGS-Research-blue.svg)](https://owi.usgs.gov/R/packages.html#research)|
+[![status](https://img.shields.io/badge/USGS-Research-blue.svg)](https://owi.usgs.gov/R/packages.html#research)|
 
 ### Reporting bugs
 
@@ -28,22 +34,6 @@ The following link walks you through an installation of R and RStudio:
 
 [Installation Instructions](https://owi.usgs.gov/R/training-curriculum/intro-curriculum/Before/)
 
-If you follow those instructions exactly, you should have the USGS R repository (GRAN) added to your R profile. If that step doesn't ring a bell, paste the following into your R console:
-
-```r
-rprofile_path = file.path(Sys.getenv("HOME"), ".Rprofile")
-write('\noptions(repos=c(getOption(\'repos\'),
-    CRAN=\'https://cloud.r-project.org\',
-    USGS=\'https://owi.usgs.gov/R\'))\n',
-      rprofile_path, 
-      append =  TRUE)
-
-cat('Your Rprofile has been updated to include GRAN.
-    Please restart R for changes to take effect.')
-```
-
-*RESTART RSTUDIO!*
-
 Useful links:
 
 * [Download R Windows](https://cran.r-project.org/bin/windows/base/)
@@ -53,13 +43,13 @@ Useful links:
 
 ## Installation of SampleSplitting
 
-This section should also only have to be done once. It assumes the USGS R repository (GRAN) was added to your R profile as described above.
-
+You will need the "remotes" package to install `SampleSplitting`.
 ```r
-install.packages("SampleSplitting")
+install.packages("remotes")
+remotes::install_github("USGS-R/SampleSplitting", upgrade = "never")
 ```
 
-Regularly, it is a good idea to update *ALL* your packages in R. If using RStudio, this is quite easy, there's an Update button in the "Packages" tab. This checks CRAN and GRAN for updates. It is a good idea to click this update regularly.
+Regularly, it is a good idea to update *ALL* your packages in R. If using RStudio, this is quite easy, there's an Update button in the "Packages" tab.
 
 ![update](http://usgs-r.github.io/images/update.png)
 

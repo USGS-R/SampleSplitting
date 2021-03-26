@@ -35,4 +35,3 @@ tzCode <- "America/Jamaica"
 adaps_data_all <- getADAPSData(siteNo,StartDt,EndDt,precipSite,tzCode=tzCode)
 }
 }
-

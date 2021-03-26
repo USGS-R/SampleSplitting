@@ -4,7 +4,14 @@
 \alias{labVolumesTable}
 \title{Function to generate clean text file of sample amounts for lab}
 \usage{
-labVolumesTable(StormName, StormStart, StormEnd, tableOut, bottlePickup)
+labVolumesTable(
+  StormName,
+  StormStart,
+  StormEnd,
+  tableOut,
+  bottlePickup,
+  tzCode = "America/Chicago"
+)
 }
 \arguments{
 \item{StormName}{vector of storm name(s)}
@@ -16,8 +23,9 @@ labVolumesTable(StormName, StormStart, StormEnd, tableOut, bottlePickup)
 \item{tableOut}{list of data frames containing event data}
 
 \item{bottlePickup}{dates bottles were retrieved}
+
+\item{tzCode}{character a timezone specification for the data}
 }
 \description{
 This function accepts a vector of storm names, vector of storm start and end datetimes and list of dataframes containing event data
 }
-

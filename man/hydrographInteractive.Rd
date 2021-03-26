@@ -19,4 +19,3 @@ This function accepts a merged data frame of ADAPS data for a site/storm event
 rdbExample<-rdbExample
 hydrographInteractive(rdbExample)
 }
-

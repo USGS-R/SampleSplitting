@@ -18,4 +18,3 @@ mergedDataTable(siteNo, StartDt, EndDt, adaps_data_all)
 \description{
 This function accepts a siteNo, StartDt and EndDt and merged data data frame for a storm event, and generates a data file
 }
-

@@ -9,8 +9,11 @@
 #' @param maxBottleVol maximum bottle volume
 #' @param bottlePickup date bottles were retrieved
 #' @param removeComment vector of comments
+#' @param tzCode character a timezone specification for the data
 #' @export
-stormEventsTable <- function(StormName,StormStart,StormEnd,tableOut,maxBottleVol,bottlePickup,removeComment=""){
+stormEventsTable <- function(StormName,StormStart,StormEnd,
+                             tableOut,maxBottleVol,bottlePickup,
+                             removeComment="", tzCode = "America/Chicago"){
   fileName <- paste(StormName[1],"sampVol",".txt",sep="")
   volSum <- 0
   less <- 0

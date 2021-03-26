@@ -20,7 +20,15 @@ hydrographInteractive <- function(adaps_data_all) {
   sample_data <- data.frame(adaps_data_samples[,c("datetime","p00060")],rep("Sample Stage",nrow(adaps_data_samples)),paste(adaps_data_samples[,c("p00060")],adaps_data_samples[,c("datetime")],sep=" "),stringsAsFactors=FALSE)
   names(sample_data) <- c("datetime","value","name","label")
   plot_data <- rbind(rain_data,stage_data,disch_data,sample_data)
-  hydrographInteractive <- gvisAnnotatedTimeLine(plot_data,datevar="datetime",numvar="value",idvar="name",annotationvar="label",options=list(colors="['blue','green','red','white']",displayAnnotations=TRUE,legendPosition="newRow",scaleColumns="[0,2]",scaleType='allfixed',width="1500px", height="700px",thickness="[2,2,2,.5]"))
+  hydrographInteractive <- googleVis::gvisAnnotatedTimeLine(plot_data, datevar = "datetime",
+                                                            numvar = "value", idvar = "name",
+                                                            annotationvar = "label",
+                                                            options=list(colors = "['blue','green','red','white']",
+                                                                         displayAnnotations = TRUE,
+                                                                         legendPosition = "newRow",
+                                                                         scaleColumns = "[0,2]", scaleType = 'allfixed',
+                                                                         width = "1500px", height = "700px",
+                                                                         thickness = "[2,2,2,.5]"))
   
   return(hydrographInteractive)
 }

@@ -4,8 +4,17 @@
 \alias{labDataOut}
 \title{Function to return adaps_lab_samples df derived from previously merged data}
 \usage{
-labDataOut(adaps_data_all, StormStart, StormEnd, StormName, maxBottleVol,
-  maxSampVol, removeDate = NA, subNum = -9)
+labDataOut(
+  adaps_data_all,
+  StormStart,
+  StormEnd,
+  StormName,
+  maxBottleVol,
+  maxSampVol,
+  removeDate = NA,
+  subNum = -9,
+  tzCode = "America/Chicago"
+)
 }
 \arguments{
 \item{adaps_data_all}{data frame containing merged ADAPS data for the requested site and date range}
@@ -23,6 +32,8 @@ labDataOut(adaps_data_all, StormStart, StormEnd, StormName, maxBottleVol,
 \item{removeDate}{vector of datetimes to be removed from the calculation, in the same timezone as adaps_data_all$datetime}
 
 \item{subNum}{vector of starting numbers for first bottle of each storm event}
+
+\item{tzCode}{character a timezone specification for the data}
 }
 \value{
 tableOut list of a table for each storm event of bottle volumes
@@ -32,15 +43,27 @@ This function accepts a data frame of data for a site/storm event, storm start d
 storm names, maximum volume in one sample bottle, and maximum volume for an entire storm sample
 }
 \examples{
-rdbExample<-rdbExample
+rdbExample <- rdbExample
+tzCode <- "America/Chicago"
 maxBottleVol <- c(400,600,600,600,600,600,600,400,600,800)
 maxSampVol <- c(3900,3900,3900,3900,3900,3900,3900,3900,3900,3900)
-StormStart <- c("2008-05-30 02:51","2008-06-05 04:39","2008-06-06 04:22","2008-06-07 22:52","2008-06-08 08:41","2008-06-08 19:03","2008-06-12 09:03","2008-06-12 21:40","2008-06-14 16:52","2008-06-15 04:07")
-StormEnd <- c("2008-05-30 08:49","2008-06-05 07:21","2008-06-06 05:28","2008-06-08 01:14","2008-06-08 11:39","2008-06-08 21:31","2008-06-12 10:22","2008-06-13 01:36","2008-06-14 18:05","2008-06-15 09:22")
-StormName <- c("S2-066","S2-067","S2-068","S2-069","S2-070","S2-071","S2-072","S2-073","S2-074","S2-075")
+StormStart <- c("2008-05-30 02:51","2008-06-05 04:39","2008-06-06 04:22",
+                "2008-06-07 22:52","2008-06-08 08:41","2008-06-08 19:03",
+                "2008-06-12 09:03","2008-06-12 21:40","2008-06-14 16:52",
+                "2008-06-15 04:07")
+StormEnd <- c("2008-05-30 08:49","2008-06-05 07:21","2008-06-06 05:28",
+              "2008-06-08 01:14","2008-06-08 11:39","2008-06-08 21:31",
+              "2008-06-12 10:22","2008-06-13 01:36","2008-06-14 18:05",
+              "2008-06-15 09:22")
+StormName <- c("S2-066","S2-067","S2-068","S2-069","S2-070","S2-071",
+               "S2-072","S2-073","S2-074","S2-075")
 subNum <- c(1,1,1,1,16,1,1,5,1,7)
-dataOut <- labDataOut(rdbExample,StormStart,StormEnd,StormName,maxBottleVol,maxSampVol)
+dataOut <- labDataOut(rdbExample,
+                      StormStart,StormEnd,
+                      StormName,maxBottleVol,maxSampVol)
 removeDate <- as.POSIXct("2008-06-15 05:44:00")
-dataOut2 <- labDataOut(rdbExample,StormStart,StormEnd,StormName,maxBottleVol,maxSampVol, removeDate)
+dataOut2 <- labDataOut(rdbExample,
+                       StormStart, StormEnd,
+                       StormName,maxBottleVol,maxSampVol,
+                        removeDate, tzCode = tzCode)
 }
-

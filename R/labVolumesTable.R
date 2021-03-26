@@ -5,10 +5,12 @@
 #' @param StormName vector of storm name(s)
 #' @param StormStart vector of storm start dates
 #' @param StormEnd vector of storm end dates
+#' @param tzCode character a timezone specification for the data
 #' @param tableOut list of data frames containing event data
 #' @param bottlePickup dates bottles were retrieved
 #' @export
-labVolumesTable <- function(StormName,StormStart,StormEnd,tableOut,bottlePickup){
+labVolumesTable <- function(StormName, StormStart, StormEnd,
+                            tableOut, bottlePickup, tzCode = "America/Chicago"){
   fileName <- paste(StormName[1],"labVolumes",".txt",sep="")
   less <- 0
   sink(fileName)

@@ -1,11 +1,6 @@
-# Do only once:
-install.packages(c("googleVis"), dependencies=TRUE)
-install.packages("dataRetrieval")
-install.packages(c("SampleSplitting"), repos=c("http://owi.usgs.gov/R",getOption("repos")))
-#############################################
+
 library(SampleSplitting)
 library(dataRetrieval)
-library(googleVis)
 # enter NWIS station id for gaging station
 siteNo <- "424314090240601"
 # enter date to begin pulling data (rounded to the day)
