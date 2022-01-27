@@ -13,8 +13,7 @@ hydrographPDF(adaps_data_all, siteNo, dateInt, tzCode = "America/Chicago")
 
 \item{dateInt}{number containing number of hours difference between x-axis tick marks}
 
-\item{tzCode}{character a timezone specification for the data
-#' @export}
+\item{tzCode}{character a timezone specification for the data}
 }
 \description{
 This function accepts a merged data frame of ADAPS data for a site/storm event

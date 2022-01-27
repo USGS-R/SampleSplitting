@@ -6,7 +6,8 @@
 #' @param siteNo string containing USGS gage number
 #' @param dateInt number containing number of hours difference between x-axis tick marks
 #' @param tzCode character a timezone specification for the data
-#' #' @export
+#' 
+#' @export
 #' @importFrom graphics axis
 #' @importFrom graphics axis.POSIXct
 #' @importFrom graphics legend

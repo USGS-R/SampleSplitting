@@ -2,6 +2,7 @@
 
 export(getADAPSData)
 export(hydrographInteractive)
+export(hydrographPDF)
 export(intermediateVolTable)
 export(labDataOut)
 export(labDataOutMI)
