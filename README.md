@@ -1,58 +1,30 @@
 # SampleSplitting
 
+Moved to: https://code.usgs.gov/water/analysis-tools/SampleSplitting
 
 Calculates sample bottle volumes for a given USGS station and storm event(s)
 
-## Example Workflow
 
-```r
-
-
-
-```
-
-## Package Status
-
-
-[![status](https://img.shields.io/badge/USGS-Research-blue.svg)](https://owi.usgs.gov/R/packages.html#research)|
 
 ### Reporting bugs
 
 Please consider reporting bugs and asking questions on the Issues page:
-[https://github.com/USGS-R/SampleSplitting/issues](https://github.com/USGS-R/SampleSplitting/issues)
-
-### Code of Conduct
-
-We want to encourage a warm, welcoming, and safe environment for contributing to this project. See the [code of conduct](https://github.com/USGS-R/SampleSplitting/blob/master/CONDUCT.md) for more information.
+[https://code.usgs.gov/water/analysis-tools/SampleSplitting/-/issues](https://code.usgs.gov/water/analysis-tools/SampleSplitting/-/issues)
 
 
-## Installation of R and RStudio
+# Installation of SampleSplitting
 
-This section should only need to be done once per computer.
+Those within the USGS network can ask to have the prod-legacy R Package Manager added to their R enviornment. Installation and updates are done using the standard install.packages command.
 
-The following link walks you through an installation of R and RStudio:
+External to the USGS network, to install the `SampleSplitting` package, first install the "remotes" package. Then, using the remotes package, install "SampleSplitting":
 
-[Installation Instructions](https://owi.usgs.gov/R/training-curriculum/intro-curriculum/Before/)
-
-Useful links:
-
-* [Download R Windows](https://cran.r-project.org/bin/windows/base/)
-* [Download R Mac](https://cran.r-project.org/bin/macosx/)
-* [Download RStudio](https://www.rstudio.com/products/rstudio/download/)
-
-
-## Installation of SampleSplitting
-
-You will need the "remotes" package to install `SampleSplitting`.
 ```r
-install.packages("remotes")
-remotes::install_github("USGS-R/SampleSplitting", upgrade = "never")
+remotes::install_gitlab("water/analysis-tools/SampleSplitting",
+                        host = "code.usgs.gov")
+
 ```
 
-Regularly, it is a good idea to update *ALL* your packages in R. If using RStudio, this is quite easy, there's an Update button in the "Packages" tab.
-
-![update](http://usgs-r.github.io/images/update.png)
-
+# Example Workflow
 
 An example workflow script is available at https://github.com/USGS-R/SampleSplitting/blob/master/inst/sampleSplitWorkflow.R or in your R package library (eg C:\Users\jlthomps\Documents\R\win-library\2.14\SampleSplitting\sampleSplitWorkflow.R)
 
